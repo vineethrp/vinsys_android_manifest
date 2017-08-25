@@ -2,11 +2,22 @@
 <manifest>
 
   <remote  name="aosp"
-           fetch=".." />
+           fetch="https://android.googlesource.com/" />
   <default revision="refs/tags/android-7.1.1_r4"
            remote="aosp"
            sync-j="4" />
 
+  <remote name="shugaoye"
+          fetch="https://github.com/shugaoye/" />
+
+
+  <!-- github/shugaoye -->
+  <project path="kernel" name="goldfish" remote="shugaoye"
+           revision="refs/tags/android-7.1.1_r4_x86emu_ch04_r1" />
+  <project path="device/generic/x86emu" name="x86emu" remote="shugaoye"
+           revision="refs/tags/android-7.1.1_r4_x86emu_ch04_r1" />
+
+  <!-- AOSP -->
   <project path="build" name="platform/build" groups="pdk,tradefed" >
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
